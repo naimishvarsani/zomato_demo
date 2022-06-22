@@ -11,7 +11,7 @@ class OtherView extends StatelessWidget {
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Center(
           child: Text(
-            "Other View",
+            "Offer View",
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
         )

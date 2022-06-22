@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:zomato/AllPages/dining_view.dart';
 import 'package:zomato/AllPages/homepage.dart';
-import 'package:zomato/AllPages/other.dart';
+import 'package:zomato/AllPages/offer.dart';
 import 'package:zomato/AllPages/wallet.dart';
 
 class BottomNavigationView extends StatefulWidget {
@@ -27,7 +27,6 @@ class _BottomNavigationViewState extends State<BottomNavigationView> {
       body: screens[currenIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Color.fromRGBO(226, 56, 70, 1),
-        selectedIconTheme: IconThemeData(color: Color.fromRGBO(226, 56, 70, 1)),
         unselectedItemColor: Colors.grey,
         showSelectedLabels: true,
         showUnselectedLabels: true,
@@ -42,28 +41,24 @@ class _BottomNavigationViewState extends State<BottomNavigationView> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.delivery_dining,
-              color: Colors.black,
             ),
             label: "Delivery",
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.fastfood_rounded,
-              color: Colors.black,
             ),
             label: "Dining",
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.monetization_on,
-              color: Colors.black,
             ),
             label: "Offers",
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.account_balance_wallet,
-              color: Colors.black,
             ),
             label: "Wallet",
           ),

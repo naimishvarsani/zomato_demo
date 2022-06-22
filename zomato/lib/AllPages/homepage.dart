@@ -59,26 +59,24 @@ class HomePageState extends State<HomePage> {
               SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
-                    return Padding(
-                      padding: EdgeInsets.only(top: 15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          textWidget(headtext: 'Check This Out!'),
-                          SizedBox(height: 15),
-                          offerAd(),
-                          SizedBox(height: 20),
-                          textWidget(headtext: 'Eat what makes you happy'),
-                          SizedBox(height: 15),
-                          itemGrid(),
-                          SizedBox(height: 5),
-                          textWidget(headtext: 'Quick checkout meals'),
-                          restaurantsAvalible(),
-                        ],
-                      ),
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        textWidget(headtext: 'Check This Out!'),
+                        SizedBox(height: 15),
+                        offerAd(),
+                        SizedBox(height: 20),
+                        textWidget(headtext: 'Eat what makes you happy'),
+                        SizedBox(height: 15),
+                        itemGrid(),
+                        SizedBox(height: 20),
+                        textWidget(headtext: 'Quick checkout meals'),
+                        SizedBox(height: 15),
+                        restaurantsAvalible(),
+                      ],
                     );
                   },
-                  childCount: 3,
+                  // childCount: 3,
                 ),
               ),
             ],
@@ -172,7 +170,7 @@ class HomePageState extends State<HomePage> {
       child: Center(
           child: Text(
         text,
-        style: TextStyle(fontSize: 10),
+        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
       )),
     );
   }
@@ -182,57 +180,55 @@ class HomePageState extends State<HomePage> {
       children: [
         Container(
           padding: EdgeInsets.only(left: 10, top: 10, bottom: 10),
-          height: Get.height * 0.18,
           width: Get.width,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Color.fromARGB(255, 216, 161, 157),
           ),
-          child: Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              height: Get.height / 6,
-              width: Get.height / 6,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage(AssetsPath.image + 'pizza-png-15.png'),
+          child: Padding(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  "Welcome",
+                  style: TextStyle(
+                    color: Color(AppColor.black),
+                    fontSize: 25,
+                  ),
                 ),
-              ),
+                Text(
+                  "GET 50% OFF \nON FIRST ORDER",
+                  style: TextStyle(
+                    color: Color(AppColor.black),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
+                ),
+                Text(
+                  "Order Now >",
+                  style: TextStyle(
+                    color: Color(AppColor.black),
+                    fontSize: 16,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.all(10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                "Welcome",
-                style: TextStyle(
-                  color: Color(AppColor.black),
-                  fontSize: 25,
-                ),
+        Align(
+          alignment: Alignment.centerRight,
+          child: Container(
+            height: Get.height * 0.12,
+            width: Get.height / 6,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(AssetsPath.image + 'pizza-png-15.png'),
               ),
-              Text(
-                "GET 50% OFF \nON FIRST ORDER",
-                style: TextStyle(
-                  color: Color(AppColor.black),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
-              ),
-              Text(
-                "Order Now >",
-                style: TextStyle(
-                  color: Color(AppColor.black),
-                  fontSize: 16,
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+        )
       ],
     );
   }
@@ -251,7 +247,7 @@ class HomePageState extends State<HomePage> {
             return Column(
               children: [
                 Container(
-                  height: Get.height * 0.09,
+                  height: Get.height * 0.08,
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -264,7 +260,7 @@ class HomePageState extends State<HomePage> {
                 SizedBox(height: 5),
                 Text(
                   foodItemList[index].name,
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 10),
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
                 )
               ],
             );
@@ -274,7 +270,7 @@ class HomePageState extends State<HomePage> {
 
   Widget restaurantsAvalible() {
     return Container(
-      height: Get.height * 0.4,
+      height: Get.height * 0.42,
       width: Get.width,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
@@ -287,15 +283,13 @@ class HomePageState extends State<HomePage> {
 
   Widget foodcell(int index, BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      padding: EdgeInsets.only(top: 10, left: 10, right: 10),
       child: Container(
-        width: Get.width / 2,
-        height: Get.height,
+        width: Get.width * 0.6,
         child: Column(
           children: [
             Container(
               height: Get.height / 6,
-              width: Get.width / 2,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(15),
@@ -307,9 +301,13 @@ class HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              height: 140,
-              width: Get.width,
-              color: Colors.grey.shade200,
+              decoration: BoxDecoration(
+                color: Colors.grey.shade200,
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(15),
+                  bottomLeft: Radius.circular(15),
+                ),
+              ),
               child: Padding(
                 padding: EdgeInsets.all(10),
                 child: Column(
@@ -326,18 +324,18 @@ class HomePageState extends State<HomePage> {
                           ),
                         ),
                         Container(
-                          height: 20,
-                          width: 40,
+                          padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             color: Color.fromARGB(255, 6, 56, 8),
                           ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            restaurantList[index].rating,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                          child: Center(
+                            child: Text(
+                              "${restaurantList[index].rating}⋆",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
